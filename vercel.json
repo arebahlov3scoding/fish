@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/breeds-reccommended", "destination": "/breeds%20reccommended.html" },
+    { "source": "/founders-portfolio", "destination": "/founders%20portfolio.html" },
+    { "source": "/services-offered", "destination": "/services%20offered.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/map", "destination": "/map.html" },
+    { "source": "/home", "destination": "/index.html" }
+  ]
+}
