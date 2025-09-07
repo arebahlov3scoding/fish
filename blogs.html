@@ -1,270 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Blog Page</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <script src="js/bootstrap.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f4f4f4;
-    }
-
-    input, textarea {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #009578;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .navbar {
-      background: linear-gradient(135deg, aqua, #e0f7fa);
-    }
-
-    .blog-post {
-      background-color: white;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .blog-post img, .blog-post video {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    #blogForm, #logoutBtn {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .company-name {
-        font-size: 24px;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/bootstrap.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f4f4f4;
       }
-    }
 
-    @media (max-width: 480px) {
-      .company-name {
-        font-size: 18px;
+      input,
+      textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
       }
-    }
-  </style>
-</head>
-<body>
 
-<section class="row">
-  <div class="col-md-12">
-    <nav class="navbar navbar-expand-lg navbar-light bg-info px-3">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <img src="images/logo.jpg" alt="Logo" width="70" height="70" class="me-2 rounded-circle">
-        <span class="company-name">Nguju Fishery Consultation Services</span>
-      </a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarcollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarcollapse">
-        <div class="navbar-nav ms-auto">
-         <a href="index.html" class="nav-link">Home</a>
-        <a href="breeds-recommendations.html" class="nav-link">Breeds</a>
-        <a href="founders-portfolio.html" class="nav-link">Founder</a>
-        <a href="services-offered.html" class="nav-link active">Services</a>
-        <a href="map.html" class="nav-link">Maps</a>
+      button {
+        padding: 10px 20px;
+        background-color: #009578;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .navbar {
+        background: linear-gradient(135deg, aqua, #e0f7fa);
+      }
+
+      .blog-post {
+        background-color: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-post img,
+      .blog-post video {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      #blogForm,
+      #logoutBtn {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .company-name {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .company-name {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info px-3">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <img
+              src="images/logo.jpg"
+              alt="Logo"
+              width="70"
+              height="70"
+              class="me-2 rounded-circle"
+            />
+            <span class="company-name"
+              >Nguju Fishery Consultation Services</span
+            >
+          </a>
+          <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarcollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarcollapse">
+            <div class="navbar-nav ms-auto">
+              <a href="index.html" class="nav-link">Home</a>
+              <a href="breeds-recommendations.html" class="nav-link">Breeds</a>
+              <a href="founders-portfolio.html" class="nav-link">Founder</a>
+              <a href="services-offered.html" class="nav-link active"
+                >Services</a
+              >
+              <a href="map.html" class="nav-link">Maps</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <!-- Admin Login Form -->
+          <div id="loginForm" class="bg-white p-4 rounded shadow-sm mb-4">
+            <h3 class="text-center mb-3">🔐 Admin Login</h3>
+            <input
+              type="email"
+              id="email"
+              class="form-control mb-2"
+              placeholder="Admin email"
+            />
+            <input
+              type="password"
+              id="password"
+              class="form-control mb-3"
+              placeholder="Password"
+            />
+            <div class="text-center">
+              <button id="loginBtn" class="btn btn-info px-5">Login</button>
+            </div>
+          </div>
+
+          <!-- Logout Button -->
+          <div class="text-end mb-3">
+            <button id="logoutBtn" class="btn btn-info">Logout</button>
+          </div>
+
+          <!-- Blog Post Form -->
+          <form id="blogForm" class="bg-white p-4 rounded shadow-sm mb-4">
+            <h4 class="mb-3">✍️ Write New Blog</h4>
+            <label for="image" class="btn btn-secondary mb-2"
+              >Choose Image</label
+            >
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              style="display: none"
+            />
+            <span id="imageName" class="text-muted mb-3 d-block"
+              >No image selected</span
+            >
+            <div id="imagePreview" class="mb-3"></div>
+
+            <label for="video" class="btn btn-secondary mb-2"
+              >Choose Video</label
+            >
+            <input
+              type="file"
+              id="video"
+              accept="video/*"
+              style="display: none"
+            />
+            <span id="videoName" class="text-muted mb-3 d-block"
+              >No video selected</span
+            >
+            <div id="videoPreview" class="mb-3"></div>
+
+            <input
+              type="text"
+              id="title"
+              class="form-control mb-3"
+              placeholder="Blog Title"
+              required
+            />
+            <textarea
+              id="content"
+              class="form-control mb-3"
+              placeholder="Write your blog here..."
+              rows="5"
+              required
+            ></textarea>
+            <div class="text-end">
+              <button type="submit" class="btn btn-info">Post Blog</button>
+            </div>
+          </form>
+
+          <!-- Blog Posts Display -->
+          <div id="blogPosts"></div>
         </div>
       </div>
-    </nav>
-  </div>
-</section>
+    </section>
 
-<!-- Blog Section -->
-<section class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <!-- Firebase SDK Script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signInWithEmailAndPassword,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 
-      <!-- Admin Login Form -->
-      <div id="loginForm" class="bg-white p-4 rounded shadow-sm mb-4">
-        <h3 class="text-center mb-3">🔐 Admin Login</h3>
-        <input type="email" id="email" class="form-control mb-2" placeholder="Admin email" />
-        <input type="password" id="password" class="form-control mb-3" placeholder="Password" />
-        <div class="text-center">
-          <button id="loginBtn" class="btn btn-info px-5">Login</button>
-        </div>
-      </div>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAPfP7FvUlNa5of_hv4pEMYBrGZzjXcLyM",
+        authDomain: "ngujublogs.firebaseapp.com",
+        projectId: "ngujublogs",
+        storageBucket: "ngujublogs.appspot.com",
+        messagingSenderId: "206754259481",
+        appId: "1:206754259481:web:44579469aea3575bbfc088",
+      };
 
-      <!-- Logout Button -->
-      <div class="text-end mb-3">
-        <button id="logoutBtn" class="btn btn-info">Logout</button>
-      </div>
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+      const blogRef = collection(db, "blogs");
 
-      <!-- Blog Post Form -->
-      <form id="blogForm" class="bg-white p-4 rounded shadow-sm mb-4">
-        <h4 class="mb-3">✍️ Write New Blog</h4>
-        <label for="image" class="btn btn-secondary mb-2">Choose Image</label>
-        <input type="file" id="image" accept="image/*" style="display: none;" />
-        <span id="imageName" class="text-muted mb-3 d-block">No image selected</span>
-        <div id="imagePreview" class="mb-3"></div>
+      // Load existing blogs
+      async function loadBlogs() {
+        const querySnapshot = await getDocs(blogRef);
+        querySnapshot.forEach((doc) => {
+          const { title, content, imageUrl = "", videoUrl = "" } = doc.data();
+          addPostToPage(title, content, imageUrl, videoUrl);
+        });
+      }
 
-        <label for="video" class="btn btn-secondary mb-2">Choose Video</label>
-        <input type="file" id="video" accept="video/*" style="display: none;" />
-        <span id="videoName" class="text-muted mb-3 d-block">No video selected</span>
-        <div id="videoPreview" class="mb-3"></div>
-
-        <input type="text" id="title" class="form-control mb-3" placeholder="Blog Title" required />
-        <textarea id="content" class="form-control mb-3" placeholder="Write your blog here..." rows="5" required></textarea>
-        <div class="text-end">
-          <button type="submit" class="btn btn-info">Post Blog</button>
-        </div>
-      </form>
-
-      <!-- Blog Posts Display -->
-      <div id="blogPosts"></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Firebase SDK Script -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
-  import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAPfP7FvUlNa5of_hv4pEMYBrGZzjXcLyM",
-    authDomain: "ngujublogs.firebaseapp.com",
-    projectId: "ngujublogs",
-    storageBucket: "ngujublogs.appspot.com",
-    messagingSenderId: "206754259481",
-    appId: "1:206754259481:web:44579469aea3575bbfc088"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
-  const storage = getStorage(app);
-  const blogRef = collection(db, "blogs");
-
-  // Load existing blogs
-  async function loadBlogs() {
-    const querySnapshot = await getDocs(blogRef);
-    querySnapshot.forEach((doc) => {
-      const { title, content, imageUrl = "", videoUrl = "" } = doc.data();
-      addPostToPage(title, content, imageUrl, videoUrl);
-    });
-  }
-
-  // Display blog post
-  function addPostToPage(title, content, imageUrl = "", videoUrl = "") {
-    const blogPost = document.createElement("div");
-    blogPost.className = "blog-post";
-    blogPost.innerHTML = `
+      // Display blog post
+      function addPostToPage(title, content, imageUrl = "", videoUrl = "") {
+        const blogPost = document.createElement("div");
+        blogPost.className = "blog-post";
+        blogPost.innerHTML = `
       <h3>${title}</h3>
       ${imageUrl ? `<img src="${imageUrl}" alt="Blog Image" />` : ""}
-      ${videoUrl ? `<video controls><source src="${videoUrl}" type="video/mp4">Your browser does not support the video tag.</video>` : ""}
+      ${
+        videoUrl
+          ? `<video controls><source src="${videoUrl}" type="video/mp4">Your browser does not support the video tag.</video>`
+          : ""
+      }
       <p>${content}</p>
     `;
-    document.getElementById("blogPosts").prepend(blogPost);
-  }
+        document.getElementById("blogPosts").prepend(blogPost);
+      }
 
-  // Auth state change
-  onAuthStateChanged(auth, (user) => {
-    document.getElementById("loginForm").style.display = user ? "none" : "block";
-    document.getElementById("blogForm").style.display = user ? "block" : "none";
-    document.getElementById("logoutBtn").style.display = user ? "inline" : "none";
-  });
+      // Auth state change
+      onAuthStateChanged(auth, (user) => {
+        document.getElementById("loginForm").style.display = user
+          ? "none"
+          : "block";
+        document.getElementById("blogForm").style.display = user
+          ? "block"
+          : "none";
+        document.getElementById("logoutBtn").style.display = user
+          ? "inline"
+          : "none";
+      });
 
-  // Login
-  document.getElementById("loginBtn").addEventListener("click", () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    signInWithEmailAndPassword(auth, email, password).catch((error) => alert("Login failed: " + error.message));
-  });
+      // Login
+      document.getElementById("loginBtn").addEventListener("click", () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        signInWithEmailAndPassword(auth, email, password).catch((error) =>
+          alert("Login failed: " + error.message)
+        );
+      });
 
-  // Logout
-  document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth);
-  });
+      // Logout
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        signOut(auth);
+      });
 
-  // File previews
-  document.getElementById("image").addEventListener("change", function () {
-    const file = this.files[0];
-    document.getElementById("imageName").textContent = file ? file.name : "No image selected";
-    const preview = document.getElementById("imagePreview");
-    preview.innerHTML = file ? `<img src="${URL.createObjectURL(file)}" style="max-width:100%;border-radius:8px;"/>` : "";
-  });
+      // File previews
+      document.getElementById("image").addEventListener("change", function () {
+        const file = this.files[0];
+        document.getElementById("imageName").textContent = file
+          ? file.name
+          : "No image selected";
+        const preview = document.getElementById("imagePreview");
+        preview.innerHTML = file
+          ? `<img src="${URL.createObjectURL(
+              file
+            )}" style="max-width:100%;border-radius:8px;"/>`
+          : "";
+      });
 
-  document.getElementById("video").addEventListener("change", function () {
-    const file = this.files[0];
-    document.getElementById("videoName").textContent = file ? file.name : "No video selected";
-    const preview = document.getElementById("videoPreview");
-    preview.innerHTML = file ? `<video controls style="max-width:100%;border-radius:8px;"><source src="${URL.createObjectURL(file)}" type="video/mp4"></video>` : "";
-  });
+      document.getElementById("video").addEventListener("change", function () {
+        const file = this.files[0];
+        document.getElementById("videoName").textContent = file
+          ? file.name
+          : "No video selected";
+        const preview = document.getElementById("videoPreview");
+        preview.innerHTML = file
+          ? `<video controls style="max-width:100%;border-radius:8px;"><source src="${URL.createObjectURL(
+              file
+            )}" type="video/mp4"></video>`
+          : "";
+      });
 
-  // Submit blog
-  document.getElementById("blogForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const title = document.getElementById("title").value;
-    const content = document.getElementById("content").value;
-    const imageFile = document.getElementById("image").files[0];
-    const videoFile = document.getElementById("video").files[0];
-    let imageUrl = "";
-    let videoUrl = "";
-    if (imageFile) {
-      const imageRef = ref(storage, 'images/' + Date.now() + "_" + imageFile.name);
-      await uploadBytes(imageRef, imageFile);
-      imageUrl = await getDownloadURL(imageRef);
-    }
-    if (videoFile) {
-      const videoRef = ref(storage, 'videos/' + Date.now() + "_" + videoFile.name);
-      await uploadBytes(videoRef, videoFile);
-      videoUrl = await getDownloadURL(videoRef);
-    }
-    await addDoc(blogRef, { title, content, imageUrl, videoUrl });
-    addPostToPage(title, content, imageUrl, videoUrl);
-    document.getElementById("title").value = "";
-    document.getElementById("content").value = "";
-    document.getElementById("image").value = "";
-    document.getElementById("video").value = "";
-    document.getElementById("imageName").textContent = "No image selected";
-    document.getElementById("videoName").textContent = "No video selected";
-    document.getElementById("imagePreview").innerHTML = "";
-    document.getElementById("videoPreview").innerHTML = "";
-  });
+      // Function to upload files to local server
+      async function uploadFiles(imageFile, videoFile) {
+        const formData = new FormData();
+        
+        if (imageFile) {
+          formData.append('image', imageFile);
+        }
+        if (videoFile) {
+          formData.append('video', videoFile);
+        }
+        
+        try {
+          const response = await fetch('http://localhost:3001/upload', {
+            method: 'POST',
+            body: formData
+          });
+          
+          if (!response.ok) {
+            throw new Error('Failed to upload files');
+          }
+          
+          const result = await response.json();
+          return {
+            imageUrl: result.imageUrl || '',
+            videoUrl: result.videoUrl || ''
+          };
+        } catch (error) {
+          console.error('Error uploading files:', error);
+          alert('Failed to upload files. Make sure the server is running.');
+          return { imageUrl: '', videoUrl: '' };
+        }
+      }
 
-  loadBlogs();
-</script>
+      // Submit blog
+      document
+        .getElementById("blogForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const title = document.getElementById("title").value;
+          const content = document.getElementById("content").value;
+          const imageFile = document.getElementById("image").files[0];
+          const videoFile = document.getElementById("video").files[0];
+          
+          let imageUrl = "";
+          let videoUrl = "";
+          
+          try {
+            // Upload files and get local paths
+            const { imageUrl, videoUrl } = await uploadFiles(imageFile, videoFile);
+            
+            // Save blog data to Firestore with local file paths
+            await addDoc(blogRef, { title, content, imageUrl, videoUrl });
+            addPostToPage(title, content, imageUrl, videoUrl);
+            
+            // Clear form
+            document.getElementById("title").value = "";
+            document.getElementById("content").value = "";
+            document.getElementById("image").value = "";
+            document.getElementById("video").value = "";
+            document.getElementById("imageName").textContent = "No image selected";
+            document.getElementById("videoName").textContent = "No video selected";
+            document.getElementById("imagePreview").innerHTML = "";
+            document.getElementById("videoPreview").innerHTML = "";
+            
+            alert("Blog posted successfully! Files saved to images folder.");
+          } catch (error) {
+            console.error("Error posting blog:", error);
+            alert("Failed to post blog. Please try again.");
+          }
+        });
 
-<!-- Footer -->
-<section class="row navbar text-dark p-4">
-  <div class="col-md-4">
-    <img src="images/logo.jpg" alt="" width="270" height="270" class="me-2 rounded-circle">
-  </div>
-  <div class="col-md-4">
-    <h4 class="footer-title text-center">Contact Us</h4>
-    <p>Email: <a href="mailto:ngujufisheries@gmail.com" class="text-dark">ngujufisheries@gmail.com</a></p>
-    <p>Phone: <a href="tel:+254707465860" class="text-dark">+254 707 465 860</a></p>
-    <p>Phone: <a href="tel:+254784821880" class="text-dark">+254 784 821 880</a></p>
-  </div>
-  <div class="col-md-4">
-    <h4 class="footer-title text-center">Stay Connected</h4>
-    <a href="https://www.facebook.com/profile.php" class="text-dark"><i class="fab fa-facebook me-2"></i>Facebook</a><br>
-    <a href="https://www.instagram.com/nguju_fisheries" class="text-dark"><i class="fab fa-instagram me-2"></i>Instagram</a><br>
-    <a href="https://www.tiktok.com/@user2631144565809" class="text-dark"><i class="fab fa-tiktok me-2"></i>TikTok</a><br>
-    <a href="https://www.youtube.com/@marynguju" class="text-dark"><i class="fab fa-youtube me-2"></i>YouTube</a><br>
-  </div>
-</section>
+      loadBlogs();
+    </script>
 
-</body>
+    <!-- Footer -->
+    <section class="row navbar text-dark p-4">
+      <div class="col-md-4">
+        <img
+          src="images/logo.jpg"
+          alt=""
+          width="270"
+          height="270"
+          class="me-2 rounded-circle"
+        />
+      </div>
+      <div class="col-md-4">
+        <h4 class="footer-title text-center">Contact Us</h4>
+        <p>
+          Email:
+          <a href="mailto:ngujufisheries@gmail.com" class="text-dark"
+            >ngujufisheries@gmail.com</a
+          >
+        </p>
+        <p>
+          Phone:
+          <a href="tel:+254707465860" class="text-dark">+254 707 465 860</a>
+        </p>
+        <p>
+          Phone:
+          <a href="tel:+254784821880" class="text-dark">+254 784 821 880</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h4 class="footer-title text-center">Stay Connected</h4>
+        <a href="https://www.facebook.com/profile.php" class="text-dark"
+          ><i class="fab fa-facebook me-2"></i>Facebook</a
+        ><br />
+        <a href="https://www.instagram.com/nguju_fisheries" class="text-dark"
+          ><i class="fab fa-instagram me-2"></i>Instagram</a
+        ><br />
+        <a href="https://www.tiktok.com/@user2631144565809" class="text-dark"
+          ><i class="fab fa-tiktok me-2"></i>TikTok</a
+        ><br />
+        <a href="https://www.youtube.com/@marynguju" class="text-dark"
+          ><i class="fab fa-youtube me-2"></i>YouTube</a
+        ><br />
+      </div>
+    </section>
+  </body>
 </html>
